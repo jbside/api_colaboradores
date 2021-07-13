@@ -1,0 +1,42 @@
+<form>
+    <input type="text" 
+           placeholder="Nome" 
+           name="nome" 
+           [(ngModel)]="objetoColaborador.nome">
+
+    <input type="text" 
+           placeholder="Sobrenome" 
+           name="sobrenome" 
+           [(ngModel)]="objetoColaborador.sobrenome">
+
+    <input type="text" 
+           placeholder="E-mail" 
+           name="email" 
+           [(ngModel)]="objetoColaborador.email">
+
+    <button (click)="cadastrar()">Cadastrar</button>
+</form>
+
+<hr>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>E-mail</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let c of colaboradores">
+            <td>{{c.codigo}}</td>
+            <td>{{c.nome}}</td>
+            <td>{{c.sobrenome}}</td>
+            <td>{{c.email}}</td>
+            <td><button (click)="excluir(c.codigo)">Excluir</button></td>
+        </tr>
+    </tbody>
+</table>
